@@ -11,7 +11,7 @@ export class TweetListComponent implements OnInit {
 
   public tweets:Array<Tweet>;
 
-  constructor(private tweetService:TweetsService) { }
+  constructor(public tweetService:TweetsService) { }
 
   ngOnInit() {
     this.tweetService.getTweets()

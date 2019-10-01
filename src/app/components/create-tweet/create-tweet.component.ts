@@ -10,7 +10,7 @@ import { Tweet } from 'src/app/model/tweet';
 })
 export class CreateTweetComponent implements OnInit {
 
-  constructor(private tweetService:TweetsService) { }
+  constructor(public tweetService:TweetsService) { }
 
   onSubmit(TweetForm: NgForm){
     console.log(TweetForm.value)
