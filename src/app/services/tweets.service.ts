@@ -16,9 +16,10 @@ export class TweetsService {
   }
 
   insertTweet(tweet:Tweet){
+    tweet.fecha= new Date();
     this.TweetList.push({
       descripcion: tweet.descripcion,
-      titulo: tweet.titulo
+      fecha: tweet.fecha
     });
   }
 }

@@ -1,32 +1,25 @@
-<div class = "card mt-5">
-      <h5 class = "text-center">
-            CREA UN TWEET
-        </h5>
+<div class="create-div">
+    <div class = "card mt-5">
+      <p class = "text-center">
+          <img src="assets/pin.png" alt="pin icon" width="50" height="50" class="d-inline-block align-center mt-2">  
+      </p>
     <div class = "card-body">
       
         <form #tweetForm="ngForm" (ngSubmit)="onSubmit(tweetForm)">
-            <div class="form-group">
-                <input 
-                  type="text"
-                  class="form-control"
-                  name="titulo"
-                  #titulo="ngModel"
-                  [(ngModel)]="tweetService.selectedTweet.titulo"
-                  placeholder="Titulo">
-            </div>
-
             <div class="form-group">
                     <input 
                       type="text"
                       class="form-control"
                       name="descripcion"
+                      autocomplete="off"
                       #descripcion="ngModel"
                       [(ngModel)]="tweetService.selectedTweet.descripcion"
-                      placeholder="Descripción">
+                      placeholder="¡Cuentanos algo!">
                 </div>
             <div class="form-group">
-                <button class="btn btn-lg btn-block bg-company-blue" type="submit">Publicar</button>
+                <button class="btn btn-lg btn-block bg-company-blue" type="submit">¡Compartelo!</button>
             </div>
         </form>
     </div>
+</div>
 </div>

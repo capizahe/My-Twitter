@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Tweet } from 'src/app/model/tweet';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-tweet',
@@ -10,7 +11,7 @@ export class TweetComponent implements OnInit {
 
   @Input() tweet:Tweet
   
-  constructor() {   
+  constructor(private datePipe: DatePipe) {   
   }
 
   ngOnInit() {

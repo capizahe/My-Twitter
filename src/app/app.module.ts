@@ -15,13 +15,17 @@ import  {FormsModule} from '@angular/forms'
 
 //services
 import {TweetsService} from './services/tweets.service';
+import { LoginComponent } from './components/login/login.component';
+
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     TweetComponent,
     TweetListComponent,
-    CreateTweetComponent
+    CreateTweetComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import {TweetsService} from './services/tweets.service';
     AngularFireDatabaseModule,
     FormsModule
   ],
-  providers: [TweetsService],
+  providers: [TweetsService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,14 @@
+import { Autor } from './autor';
+
 export class Tweet {
+    autor: Autor;
     titulo: string;
     descripcion: string;
+    fecha: Date;
 
-    constructor(titulo?:string, descripcion?:string){
-        this.titulo=titulo
+    constructor(autor?:Autor, descripcion?:string){
+        this.autor=autor;
         this.descripcion=descripcion;
+        this.fecha= new Date();
     }
 }
