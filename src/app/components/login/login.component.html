@@ -3,17 +3,18 @@
         <h4 class="text-light font-weight-bold " style="font-size:2.5rm">Sign in</h4>
     </div>
     <div class="card-body">
-        <form #login="ngForm" (ngSubmit)="onSubmitForm">
+        <form #login="ngForm">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">@</span>
                     </div>
-                        <input type="text" class="form-control" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Correo electronio" aria-label="email" aria-describedby="basic-addon1" [(ngModel)]="email" name = "email"autocomplete="off">
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1">
+                    <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1" [(ngModel)]="password" name = "password"autocomplete="off">
                 </div>
         </form>
-        <button class="btn btn-lg btn-block bg-company-blue font-weight-bold">Entrar</button>
+        <span class="form-text text-muted" (click)="onCreateAccount()">¿Aún no has creado una cuenta? Registrate aquí.</span>
+        <button class="btn btn-lg btn-block bg-company-blue font-weight-bold" type="submit" (click)='onLogin()'>Entrar</button>
     </div>
 </div>

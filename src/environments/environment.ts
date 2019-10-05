@@ -12,8 +12,9 @@ export const environment = {
     storageBucket: "",
     messagingSenderId: "932274896851",
     appId: "1:932274896851:web:6ae5419dfb9413f887f926",
-    measurementId: "G-4F0CBG68VW"
-  }
+    measurementId: "G-4F0CBG68VW",
+  },
+  
 };
 
 /*

@@ -12,12 +12,17 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {environment} from '../environments/environment';
 import  {FormsModule} from '@angular/forms'
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 //services
 import {TweetsService} from './services/tweets.service';
 import { LoginComponent } from './components/login/login.component';
 
 import { DatePipe } from '@angular/common';
+import { RegistroComponent } from './components/registro/registro.component';
+import { UserComponent } from './components/user/user.component';
+import {AuthGuard} from './auth.guard'
+
 
 @NgModule({
   declarations: [
@@ -25,16 +30,19 @@ import { DatePipe } from '@angular/common';
     TweetComponent,
     TweetListComponent,
     CreateTweetComponent,
-    LoginComponent
+    LoginComponent,
+    RegistroComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    AngularFireAuthModule
   ],
-  providers: [TweetsService,DatePipe],
+  providers: [TweetsService,DatePipe,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

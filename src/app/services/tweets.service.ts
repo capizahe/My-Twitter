@@ -1,25 +1,39 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase,AngularFireList} from 'angularfire2/database';
 import { Tweet } from '../model/tweet';
+import { DatePipe } from '@angular/common';
+import { UserService } from './user.service';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TweetsService {
 
-  TweetList : AngularFireList<any>;
+  TweetList : AngularFireList<any>
+  user = new User()
   selectedTweet: Tweet = new Tweet();
-  constructor(private firebase:AngularFireDatabase) { }
+  constructor(private firebase:AngularFireDatabase, private datepipe:DatePipe,private userService:UserService) {
+    let user = new User()
+    user.nombre = localStorage.getItem('nombre');
+    user.email = localStorage.getItem('email');
+    user.apellido = localStorage.getItem('apellido');
+    this.selectedTweet.autor = user;
+    console.log("the user is")
+    console.log(user)
+   }
 
   getTweets(){
    return this.TweetList = this.firebase.list('tweets');
   }
 
   insertTweet(tweet:Tweet){
-    tweet.fecha= new Date();
+    this.selectedTweet.fecha = new Date();
     this.TweetList.push({
       descripcion: tweet.descripcion,
-      fecha: tweet.fecha
-    });
+      fecha: this.datepipe.transform(this.selectedTweet.fecha,'dd/MM/yyyy hh:mm'),
+      correo: this.selectedTweet.autor.email
+    })
+    
   }
 }
