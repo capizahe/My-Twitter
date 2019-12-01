@@ -3,6 +3,8 @@ import {TweetsService} from '../../services/tweets.service';
 import { NgForm } from '@angular/forms';
 import { Tweet } from 'src/app/model/tweet';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-create-tweet',
@@ -11,12 +13,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CreateTweetComponent implements OnInit {
 
-  constructor(public tweetService:TweetsService, public userService:UserService) { }
+  constructor(public tweetService:TweetsService, public userService:UserService, private router:Router) { }
 
   onSubmit(TweetForm: NgForm){
     console.log(TweetForm.value)
     this.tweetService.insertTweet(TweetForm.value);
     this.resetForm(TweetForm);
+    this.router.navigate(['/tweets']);
 
   }
 

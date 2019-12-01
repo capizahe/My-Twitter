@@ -12,9 +12,6 @@ export class TweetComponent implements OnInit {
   @Input() tweet:Tweet
   
   constructor(private datePipe: DatePipe) { 
-     
- 
-    
   }
 
   ngOnInit() {

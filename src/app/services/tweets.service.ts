@@ -19,13 +19,14 @@ export class TweetsService {
     user.email = localStorage.getItem('email');
     user.apellido = localStorage.getItem('apellido');
     this.selectedTweet.autor = user;
-    console.log("the user is")
-    console.log(user)
    }
 
   getTweets(){
-   return this.TweetList = this.firebase.list('tweets');
+    this.TweetList = this.firebase.list('tweets');
+    return this.TweetList;
   }
+
+ 
 
   insertTweet(tweet:Tweet){
     this.selectedTweet.fecha = new Date();

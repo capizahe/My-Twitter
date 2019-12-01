@@ -21,7 +21,8 @@ import { LoginComponent } from './components/login/login.component';
 import { DatePipe } from '@angular/common';
 import { RegistroComponent } from './components/registro/registro.component';
 import { UserComponent } from './components/user/user.component';
-import {AuthGuard} from './auth.guard'
+import {AuthGuard} from './auth.guard';
+import { UserTweetsComponent } from './components/user-tweets/user-tweets.component'
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {AuthGuard} from './auth.guard'
     CreateTweetComponent,
     LoginComponent,
     RegistroComponent,
-    UserComponent
+    UserComponent,
+    UserTweetsComponent
   ],
   imports: [
     BrowserModule,

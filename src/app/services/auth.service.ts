@@ -26,9 +26,9 @@ constructor(public  afAuth:  AngularFireAuth, public  router:  Router) {
 async login(email:  string, password:  string) {
 
   try {
-    console.log(email +" "+ password)
       await  this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then(sucess => {
+        localStorage.setItem('loggedin',"yes")
         localStorage.setItem('email',email)
         this.router.navigate(['/tweets']);
       })

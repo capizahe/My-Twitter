@@ -15,8 +15,8 @@ export class RegistroComponent implements OnInit {
   constructor(private router:Router,private userService:UserService) { }
 
    addUser(){
-    console.log("User", this.user)
     this.userService.addUser(this.user);
+    localStorage.setItem("email",this.user.email)
     this.resetReg();
   }
 

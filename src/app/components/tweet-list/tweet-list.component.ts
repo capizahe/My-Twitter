@@ -9,7 +9,7 @@ import { TweetsService } from 'src/app/services/tweets.service';
 })
 export class TweetListComponent implements OnInit {
 
-  public tweets:Array<Tweet>;
+  public tweets:Tweet[];
 
   constructor(public tweetService:TweetsService) { }
 
@@ -17,13 +17,14 @@ export class TweetListComponent implements OnInit {
     this.tweetService.getTweets()
     .snapshotChanges()
     .subscribe(tweets=>{
-      this.tweets = new Array();
+      this.tweets = new Array(tweets.length);
+      let i = tweets.length-1;
       tweets.forEach(tweet=>{
         var t = tweet.payload.toJSON()
         t["$key"] = tweet.key;
-        this.tweets.push(t as Tweet);
-      })
+        this.tweets[i] = (t as Tweet);
+        i--;
+      }) 
     })
   }
-
 }
