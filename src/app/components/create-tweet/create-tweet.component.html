@@ -5,7 +5,7 @@
       </p>
     <div class = "card-body">
       
-        <form #tweetForm="ngForm" (ngSubmit)="onSubmit(tweetForm)">
+        <form #tweetForm="ngForm">
             <div class="form-group">
                     <input 
                       type="text"
@@ -14,10 +14,10 @@
                       autocomplete="off"
                       #descripcion="ngModel"
                       [(ngModel)]="tweetService.selectedTweet.descripcion"
-                      placeholder="¡Cuentanos algo!">
+                      placeholder="¡Cuéntanos algo!">
                 </div>
             <div class="form-group">
-                <button class="btn btn-lg btn-block bg-company-blue" type="submit">¡Compartelo!</button>
+                <button class="btn btn-lg btn-block bg-company-blue" (click)="addPost()">¡Compártelo!</button>
             </div>
         </form>
     </div>

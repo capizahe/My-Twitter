@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {TweetsService} from '../../services/tweets.service';
-import { NgForm } from '@angular/forms';
-import { Tweet } from 'src/app/model/tweet';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 
@@ -13,20 +11,13 @@ import { Router } from '@angular/router';
 })
 export class CreateTweetComponent implements OnInit {
 
+  
   constructor(public tweetService:TweetsService, public userService:UserService, private router:Router) { }
 
-  onSubmit(TweetForm: NgForm){
-    console.log(TweetForm.value)
-    this.tweetService.insertTweet(TweetForm.value);
-    this.resetForm(TweetForm);
+  addPost(){
+    this.tweetService.insertTweet(this.tweetService.selectedTweet);
     this.router.navigate(['/tweets']);
 
-  }
-
-  resetForm(TweetForm: NgForm){
-    if(TweetForm != null){
-      this.tweetService.selectedTweet = new Tweet();
-    }
   }
 
   ngOnInit() {

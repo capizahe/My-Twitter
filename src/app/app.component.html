@@ -17,6 +17,11 @@
            <p class="text-white font-weight-bold">Inicio</p>
         </a>
       </li>
+      <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="signedIn()">
+        <a class="nav-link" routerLink="/myposts">
+           <p class="text-white font-weight-bold">Mio</p>
+        </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="signedIn()" (click)="logout()">
           <p class="text-white font-weight-bold">Salir</p>

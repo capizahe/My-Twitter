@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TweetComponent } from '../tweet/tweet.component';
+import { Tweet } from 'src/app/model/tweet';
+import { TweetsService } from 'src/app/services/tweets.service';
 
 @Component({
   selector: 'app-user-tweets',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserTweetsComponent implements OnInit {
 
-  constructor() { }
+  tweets : Tweet[]
+
+  constructor(public postService:TweetsService) { }
 
   ngOnInit() {
-  }
 
+    this.postService.getTweetsByUser(localStorage.getItem('email'))
+    .snapshotChanges()
+    .subscribe(tweets=>{
+      this.tweets = new Array(tweets.length);
+      let i = tweets.length-1;
+      tweets.forEach(tweet=>{
+        var t = tweet.payload.toJSON()
+        t["$key"] = tweet.key;
+        this.tweets[i] = (t as Tweet);
+        i--;
+      }) 
+    })
+  }
 }

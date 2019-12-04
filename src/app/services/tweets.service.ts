@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Query } from '@angular/core';
 import { AngularFireDatabase,AngularFireList} from 'angularfire2/database';
 import { Tweet } from '../model/tweet';
 import { DatePipe } from '@angular/common';
@@ -24,6 +24,10 @@ export class TweetsService {
   getTweets(){
     this.TweetList = this.firebase.list('tweets');
     return this.TweetList;
+  }
+
+  getTweetsByUser(email:string):AngularFireList<any>{
+   return this.firebase.list  ("tweets",query=>{ return query.orderByChild('correo').equalTo(email);})
   }
 
  

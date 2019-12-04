@@ -1,1 +1,8 @@
-<p>user-tweets works!</p>
+
+<div>
+Perfil
+</div>
+
+<div *ngFor = "let tweet of tweets" class="list-tweets">
+    <app-tweet [tweet]="tweet"></app-tweet>
+</div>
