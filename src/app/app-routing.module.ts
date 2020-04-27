@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'create', component: CreateTweetComponent, canActivate:[AuthGuard]},
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: RegistroComponent},
-  { path: 'myposts', component: UserTweetsComponent}
+  { path: 'myposts', component: UserTweetsComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

@@ -19,12 +19,11 @@ export class LoginComponent implements OnInit {
   }
 
   onCreateAccount(){
-    this.router.navigate(['/signup']);
+    this.router.navigateByUrl('/signup');
   }
 
   onLogin(){
-    this.authService.login(this.email,this.password).then(success =>{
-    })
+    this.authService.login(this.email,this.password);
   }
 
 }

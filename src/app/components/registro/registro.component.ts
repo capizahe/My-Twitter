@@ -17,6 +17,7 @@ export class RegistroComponent implements OnInit {
    addUser(){
     this.userService.addUser(this.user);
     localStorage.setItem("email",this.user.email)
+    localStorage.setItem("loggedin",'yes')
     this.resetReg();
   }
 

@@ -14,9 +14,11 @@ export class AuthGuard implements CanActivate {
   canActivate(): boolean {
 
     if(this.authService.isLoggedIn)
-     return true
-    else this.router.navigate(['/login']);
-    alert("Debes iniciar sesión primero")
+      return true
+    else {
+      this.router.navigate(['/login']);
+      alert("Debes iniciar sesión primero")
+    }
     return false;
 
   }

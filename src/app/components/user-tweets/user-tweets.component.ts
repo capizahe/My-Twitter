@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TweetComponent } from '../tweet/tweet.component';
 import { Tweet } from 'src/app/model/tweet';
 import { TweetsService } from 'src/app/services/tweets.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-tweets',
@@ -12,10 +13,10 @@ export class UserTweetsComponent implements OnInit {
 
   tweets : Tweet[]
 
-  constructor(public postService:TweetsService) { }
+  constructor(public postService:TweetsService,public authService:AuthService) { }
 
   ngOnInit() {
-
+    if(this.authService.isLoggedIn){
     this.postService.getTweetsByUser(localStorage.getItem('email'))
     .snapshotChanges()
     .subscribe(tweets=>{
@@ -28,5 +29,6 @@ export class UserTweetsComponent implements OnInit {
         i--;
       }) 
     })
+  }
   }
 }

@@ -8,13 +8,13 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">@</span>
                     </div>
-                        <input type="text" class="form-control" placeholder="Correo electronio" aria-label="email" aria-describedby="basic-addon1" [(ngModel)]="email" name = "email"autocomplete="off">
+                        <input type="text" class="form-control" placeholder="Correo electronico" aria-label="email" aria-describedby="basic-addon1" [(ngModel)]="email" name = "email"autocomplete="off">
                 </div>
                 <div class="input-group mb-3">
                     <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1" [(ngModel)]="password" name = "password"autocomplete="off">
                 </div>
         </form>
-        <span class="form-text text-muted" (click)="onCreateAccount()">¿Aún no has creado una cuenta? Registrate aquí.</span>
+        <label class="form-text text-muted" (click)="onCreateAccount()">¿Aún no has creado una cuenta? <label class="ref">Registrate aquí.</label></label>
         <button class="btn btn-lg btn-block bg-company-blue font-weight-bold" type="submit" (click)='onLogin()'>Entrar</button>
     </div>
 </div>

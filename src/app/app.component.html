@@ -5,14 +5,15 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!signedIn()">
-            <a class="nav-link" routerLink="/login" data-toggle="collapse" >
-               <p class="text-white font-weight-bold">Inicia Sesión</p>
+  <div class="collapse navbar-collapse align-middle" id="navbarSupportedContent">
+    <ul class="nav mr-auto">
+      
+      <li class="nav-item active " data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!signedIn()">
+            <a class="nav-link align-middle" routerLink="/login" data-toggle="collapse" >
+               <p class="text-white font-weight-bold ">Inicia Sesión</p>
             </a>
         </li>
-      <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="signedIn()">
+      <li class="nav-item active"  *ngIf="signedIn()">
         <a class="nav-link" routerLink="/tweets">
            <p class="text-white font-weight-bold">Inicio</p>
         </a>
@@ -22,7 +23,7 @@
            <p class="text-white font-weight-bold">Mio</p>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
         <a class="nav-link" *ngIf="signedIn()" (click)="logout()">
           <p class="text-white font-weight-bold">Salir</p>
         </a>

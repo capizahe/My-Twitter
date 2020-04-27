@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Twitter';
+  title = 'Posted';
 
   constructor(private authService: AuthService, private router:Router){}
   
   signedIn():Boolean{
     
     if(this.authService.isLoggedIn) return true;
-    else return true;
+    return false;
   }
 
   logout(){

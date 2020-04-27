@@ -13,9 +13,6 @@ export class TweetListComponent implements OnInit {
 
   constructor(public tweetService:TweetsService) { }
 
-
- 
-  
   ngOnInit() {
     this.tweetService.getTweets()
     .snapshotChanges()

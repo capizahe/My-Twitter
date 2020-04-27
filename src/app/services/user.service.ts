@@ -34,9 +34,8 @@ export class UserService {
       email: user.email
     });
     await this.angularAuth.auth.createUserWithEmailAndPassword(user.email,user.contrasena)
-    .then(value =>{
+    .finally(() =>{
       alert("Registro satisfactorio");
-      this.router.navigate(['/tweets']);
     })
     .catch(err =>{
       alert("El correo ya se encuentra registrado o los datos son erroneos")

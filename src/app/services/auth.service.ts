@@ -24,13 +24,12 @@ constructor(public  afAuth:  AngularFireAuth, public  router:  Router) {
 }
 
 async login(email:  string, password:  string) {
-
   try {
-      await  this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then(sucess => {
+      this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .finally(() => {
         localStorage.setItem('loggedin',"yes")
         localStorage.setItem('email',email)
-        this.router.navigate(['/tweets']);
+        this.router.navigateByUrl('/tweets');
       })
   } catch (e) {
       alert("Error!"  +  e.message);
@@ -45,6 +44,6 @@ async login(email:  string, password:  string) {
 
 get isLoggedIn(): boolean {
   const  user  =  JSON.parse(localStorage.getItem('user'));
-  return  user  !==  null;
+  return  localStorage.getItem('loggedin')  == 'yes';
 }
 }
